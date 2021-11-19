@@ -1,0 +1,4 @@
+- hosts: tag_Name_terraform_lb_example_int
+  remote_user: ubuntu
+  roles:
+    - { role: webserver, become: yes }

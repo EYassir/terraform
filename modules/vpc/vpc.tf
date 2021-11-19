@@ -1,5 +1,6 @@
 resource "aws_vpc" "the_vpc" {
   cidr_block = var.vpc_cidr
+  enable_dns_hostnames = true
 }
 
 resource "aws_subnet" "vpc_subnetes" {
@@ -8,6 +9,7 @@ resource "aws_subnet" "vpc_subnetes" {
   cidr_block = var.subnets[count.index].cidr 
   availability_zone = var.subnets[count.index].zone
   map_public_ip_on_launch = true
+  
 }
 
 resource "aws_internet_gateway" "gw" {
