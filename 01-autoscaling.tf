@@ -25,6 +25,6 @@ resource "aws_autoscaling_group" "name" {
 }
 
 resource "aws_key_pair" "example_key" {
-  key_name   = var.key_name
+  # key_name   = var.key_name
   public_key = var.key_value
 }
