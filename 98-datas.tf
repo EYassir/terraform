@@ -1,7 +1,17 @@
-data "template_file" "user_data" {
-  template = file("${path.module}/resources.d/script.sh")
+data "aws_vpc" "default" {
+  default = true
 }
 
-data "aws_secretsmanager_secret" "mysecretexample" {
-  arn = "arn:aws:secretsmanager:eu-west-1:492100326379:secret:mykeysecret-GbasxP"
+data "template_file" "setup_apache" {
+  template = file("${path.module}/resources.d/setup.sh")
+}
+
+data "aws_subnet_ids" "default_subnets_ids" {
+  vpc_id = module.myvpc_module.the_vpc_id
+  #vpc_id = data.aws_vpc.default.id
+}
+
+
+output "the_value"{
+  value=data.aws_subnet_ids.default_subnets_ids
 }

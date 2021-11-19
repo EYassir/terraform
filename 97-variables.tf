@@ -1,18 +1,8 @@
-variable "key_pair_value" {
-  type    = string
-  default = "default_key_name"
-}
-
-variable "key_pair_name" {
-  type    = string
-  default = "default_key_value"
-}
-
-variable "region" {
+variable "profile" {
   type = string
 }
 
-variable "ami" {
+variable "region" {
   type = string
 }
 
@@ -20,11 +10,18 @@ variable "instance_type" {
   type = string
 }
 
-variable "profile" {
-  type    = string
-  default = "noprod"
+variable "image_id" {
+  type = string
 }
 
 variable "env" {
+  type = string
+}
+
+variable "key_name" {
+  type = string
+}
+
+variable "key_value" {
   type = string
 }

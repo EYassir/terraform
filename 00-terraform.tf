@@ -3,12 +3,10 @@ provider "aws" {
   profile = var.profile
 }
 
-
 terraform {
   backend "s3" {
-    bucket         = "fitec-remote-backend"
-    region         = "eu-west-1"
-    key            = "FITEC/backend/terraform.tfstate"
-    dynamodb_table = "fitec-terraform"
+    bucket         = "web-fitec-terraform-01"
+    key            = "WEB/FITEC/web.tfstate"
+    dynamodb_table = "web-fitec"
   }
 }
