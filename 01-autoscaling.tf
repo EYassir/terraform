@@ -23,6 +23,7 @@ resource "aws_autoscaling_group" "name" {
   #availability_zones   = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
   vpc_zone_identifier = data.aws_subnet_ids.default_subnets_ids.ids
   target_group_arns = [aws_lb_target_group.asg_target.arn]
+  health_check_type = "ELB"
   tag {
     key                 = "Name"
     value               = "terraform-lb-example-${var.env}"

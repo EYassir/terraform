@@ -42,7 +42,6 @@ resource "aws_lb_target_group" "asg_target" {
   }
 }
 
-
 resource "aws_lb_listener_rule" "asg_rule" {
   listener_arn = aws_lb_listener.http.arn
   priority     = 100
